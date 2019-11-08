@@ -1,4 +1,4 @@
-#\ -p 8094
+#\ -p 8094 --host 0.0.0.0 -s puma
 # frozen_string_literal: true
 
 require 'rubygems'

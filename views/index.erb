@@ -5,15 +5,19 @@
 <% if session[:login] %>
     <img src="/avatar?url=<%= session[:login] == 'guest' ? 'guest.png' : 'admin.png' %>" />
     <p>Welcome <%= session[:login] %>!</p>
-    <h2>Actions</h2>
-    <p>JWT: </p>
-    <pre id="jwt"><%= cookies[:jwt] %></pre>
-    <p>JWT status: <span id="jwt_status">Loading...</span></p>
-    <p>JWT public key:</p>
-    <pre><%= $rsa_public %></pre>
-    <p>Token:</p>
-    <pre id="token"><%= cookies[:token] %></pre>
-    <p>Token status: <span id="token_status">Loading...</span></p>
+
+    <% if session[:login] == 'guest' %>
+           <h2>Actions</h2>
+           <p>JWT: </p>
+           <pre id="jwt"><%= cookies[:jwt] %></pre>
+           <p>JWT status: <span id="jwt_status">Loading...</span></p>
+           <p>JWT public key:</p>
+           <pre><%= $rsa_public %></pre>
+           <p>Token:</p>
+           <pre id="token"><%= cookies[:token] %></pre>
+           <p>Token status: <span id="token_status">Loading...</span></p>
+    <% end %>
+
     <form action="/logout" method="post">
     <input type="submit" value="Logout">
     </form>
@@ -39,5 +43,5 @@
 <hr>
 <h2>Description</h2>
 <p>Your task is to gain ADMIN access to this site. There are multiple ways to do this, some easier to find, some harder. Whenever you manage to access the site as an admin, you'll receive a message stating <em>"Congratulations you are an admin (code <code>XXXX</code>)"</em>. The code will be different for each different vulnerability.</p>
-<p>During the Engineering Onsite you will receive points for doing various tasks, with the goal of earning as many points as possible. Every time you find a way to gain admin access on this site you'll also gain some points dependent on how difficult using the vulnerability was. Message <code>@zsolt</code> on Slack with the code shown, and some small notes on how you found the issue.</p>
+<p>During the Engineering Onsite you will receive points for doing various tasks, with the goal of earning as many points as possible. Every time you find a way to gain admin access on this site you'll also gain some points dependent on how difficult using the vulnerability was. Message <code>@zsolt</code> on Slack with the code shown, and some small notes on how you found the issue. If you found the issue while pairing let me know of everyone who participated.</p>
 <p>You can work in pairs to hack the site, in which case both of you'll receive the full points. However once you find a vulnerability please keep it to yourselves and don't spoil it to the others.</p>
