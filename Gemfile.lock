@@ -5,7 +5,10 @@ GEM
     jwt (2.2.1)
     multi_json (1.14.1)
     mustermann (1.0.3)
-    rack (2.0.7)
+    nio4r (2.5.2)
+    puma (4.3.5)
+      nio4r (~> 2.0)
+    rack (2.2.3)
     rack-protection (2.0.7)
       rack
     sinatra (2.0.7)
@@ -27,6 +30,7 @@ PLATFORMS
 
 DEPENDENCIES
   jwt
+  puma
   sinatra
   sinatra-contrib
 
